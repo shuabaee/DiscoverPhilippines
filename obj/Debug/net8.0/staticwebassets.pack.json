@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\obj\\Debug\\net8.0\\compressed\\rwswtbraxd.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DiscoverPhilippines.styles.css",
+      "PackagePath": "staticwebassets\\DiscoverPhilippines.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DiscoverPhilippines.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.DiscoverPhilippines.props",
+      "PackagePath": "build\\DiscoverPhilippines.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.DiscoverPhilippines.props",
+      "PackagePath": "buildMultiTargeting\\DiscoverPhilippines.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.DiscoverPhilippines.props",
+      "PackagePath": "buildTransitive\\DiscoverPhilippines.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
