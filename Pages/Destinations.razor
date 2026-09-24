@@ -2,12 +2,19 @@
 
 <div class="relative min-h-screen w-full overflow-hidden bg-ocean px-[8%] pb-24 pt-28">
 
-    <!-- Background -->
-    <img src="images/ph.jpg"
-         alt="Philippines Background"
-         class="fixed inset-0 -z-10 h-full w-full object-cover" />
 
-    <div class="fixed inset-0 -z-10 bg-gradient-to-b from-ocean/85 to-ocean/95"></div>
+    <!-- Page Background -->
+    <div class="absolute inset-0 z-0">
+
+        <img src="images/ph.jpg"
+             alt="Philippines Background"
+             class="h-full w-full object-cover object-center" />
+
+        <!-- Dark overlay so the background blends with the page -->
+        <div class="absolute inset-0 bg-gradient-to-b from-ocean/80 via-ocean/75 to-ocean/95"></div>
+
+    </div>
+
 
     <!-- HEADER -->
     <div class="relative z-10 mb-10 text-center">
@@ -26,6 +33,7 @@
 
     </div>
 
+
     <!-- SEARCH AND FILTER -->
     <div class="relative z-10 mx-auto mb-10 flex max-w-3xl flex-col gap-4 md:flex-row">
 
@@ -35,6 +43,7 @@
                @bind:event="oninput"
                placeholder="Search destinations..."
                class="w-full rounded-xl border border-slate-300 bg-white px-5 py-3 text-slate-800 outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30" />
+
 
         <!-- Custom Select -->
         <div class="relative w-full md:w-[250px]">
@@ -71,12 +80,14 @@
 
     </div>
 
+
     <!-- DESTINATION CARDS -->
     <div class="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 
         @foreach (var destination in FilteredDestinations)
         {
-            <div class="group overflow-hidden rounded-3xl bg-white shadow-xl transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <div @onclick="() => OpenDestination(destination)"
+                 class="group cursor-pointer overflow-hidden rounded-3xl bg-white shadow-xl transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
 
                 <!-- Image -->
                 <div class="relative h-[260px] overflow-hidden">
@@ -90,6 +101,7 @@
                          class="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
 
                 </div>
+
 
                 <!-- Card Content -->
                 <div class="p-7">
@@ -107,6 +119,7 @@
                     </p>
 
                     <button @onclick="() => OpenDestination(destination)"
+                            @onclick:stopPropagation="true"
                             class="w-full rounded-full bg-ocean px-6 py-3 font-semibold text-white transition duration-300 hover:bg-gold hover:text-black">
                         View Details
                     </button>
@@ -117,6 +130,7 @@
         }
 
     </div>
+
 
     <!-- NO RESULTS -->
     @if (!FilteredDestinations.Any())
@@ -132,6 +146,7 @@
 
 </div>
 
+
 <!-- DESTINATION DETAILS MODAL -->
 @if (selectedDestination != null)
 {
@@ -140,6 +155,7 @@
 
         <div class="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white shadow-2xl"
              @onclick:stopPropagation="true">
+
 
             <!-- Modal Image -->
             <div class="relative h-[280px] overflow-hidden rounded-t-3xl">
@@ -150,11 +166,13 @@
 
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
 
+
                 <!-- Close Button -->
                 <button @onclick="CloseDestination"
                         class="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-xl text-white transition hover:bg-black">
                     ✕
                 </button>
+
 
                 <!-- Modal Title -->
                 <div class="absolute bottom-5 left-6 text-white">
@@ -168,12 +186,13 @@
                     </h2>
 
                     <p class="text-sm text-slate-200">
-                         @selectedDestination.Location
+                        📍 @selectedDestination.Location
                     </p>
 
                 </div>
 
             </div>
+
 
             <!-- Modal Content -->
             <div class="p-7">
@@ -181,6 +200,7 @@
                 <p class="mb-6 leading-7 text-slate-600">
                     @selectedDestination.FullDescription
                 </p>
+
 
                 <!-- Details -->
                 <div class="grid gap-4 sm:grid-cols-2">
@@ -197,6 +217,7 @@
 
                     </div>
 
+
                     <div class="rounded-2xl bg-slate-100 p-4">
 
                         <p class="mb-1 text-xs font-bold uppercase text-gold">
@@ -210,6 +231,7 @@
                     </div>
 
                 </div>
+
 
                 <!-- Activities -->
                 <div class="mt-6">
@@ -231,6 +253,7 @@
 
                 </div>
 
+
                 <button @onclick="CloseDestination"
                         class="mt-8 w-full rounded-full bg-gold px-6 py-3 font-bold text-black transition hover:bg-gold-hover">
                     Close
@@ -243,12 +266,14 @@
     </div>
 }
 
+
 @code {
 
     private string searchText = "";
     private string selectedLocation = "All";
 
     private Destination? selectedDestination;
+
 
     private List<Destination> destinations = new()
     {
@@ -322,6 +347,7 @@
         )
     };
 
+
     private IEnumerable<Destination> FilteredDestinations =>
         destinations.Where(destination =>
             (string.IsNullOrWhiteSpace(searchText) ||
@@ -332,15 +358,18 @@
              destination.Location == selectedLocation)
         );
 
+
     private void OpenDestination(Destination destination)
     {
         selectedDestination = destination;
     }
 
+
     private void CloseDestination()
     {
         selectedDestination = null;
     }
+
 
     private record Destination(
         string Name,
