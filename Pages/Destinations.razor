@@ -8,6 +8,7 @@
 
     <div class="fixed inset-0 -z-10 bg-gradient-to-b from-ocean/85 to-ocean/95"></div>
 
+    <!-- HEADER -->
     <div class="relative z-10 mb-10 text-center">
 
         <span class="mb-2 block text-sm font-bold uppercase tracking-[2px] text-gold">
@@ -24,7 +25,7 @@
 
     </div>
 
-    <!-- Search and Filter -->
+    <!-- SEARCH AND FILTER -->
     <div class="relative z-10 mx-auto mb-10 flex max-w-3xl flex-col gap-4 md:flex-row">
 
         <input type="text"
@@ -45,7 +46,7 @@
 
     </div>
 
-    <!-- Destination Cards -->
+    <!-- DESTINATION CARDS -->
     <div class="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 
         @foreach (var destination in FilteredDestinations)
@@ -74,9 +75,14 @@
                         @destination.Name
                     </h3>
 
-                    <p class="text-sm leading-7 text-slate-500">
+                    <p class="mb-5 text-sm leading-7 text-slate-500">
                         @destination.Description
                     </p>
+
+                    <button @onclick="() => OpenDestination(destination)"
+                            class="w-full rounded-full bg-ocean px-6 py-3 font-semibold text-white transition duration-300 hover:bg-gold hover:text-black">
+                        View Details
+                    </button>
 
                 </div>
 
@@ -85,23 +91,130 @@
 
     </div>
 
+    <!-- NO RESULTS -->
     @if (!FilteredDestinations.Any())
     {
         <div class="relative z-10 mt-10 text-center">
-
             <p class="text-lg text-white">
                 No destinations found.
             </p>
-
         </div>
     }
 
 </div>
 
+
+<!-- DESTINATION MODAL -->
+@if (selectedDestination != null)
+{
+    <div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+         @onclick="CloseDestination">
+
+        <div class="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white shadow-2xl"
+             @onclick:stopPropagation="true">
+
+            <!-- Image -->
+            <div class="relative h-[280px] overflow-hidden rounded-t-3xl">
+
+                <img src="@selectedDestination.Image"
+                     alt="@selectedDestination.Name"
+                     class="h-full w-full object-cover" />
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+                <button @onclick="CloseDestination"
+                        class="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-xl text-white transition hover:bg-black">
+                    ✕
+                </button>
+
+                <div class="absolute bottom-5 left-6 text-white">
+
+                    <span class="mb-2 inline-block rounded-full bg-gold px-3 py-1 text-xs font-bold uppercase text-black">
+                        @selectedDestination.Badge
+                    </span>
+
+                    <h2 class="font-display text-3xl font-bold">
+                        @selectedDestination.Name
+                    </h2>
+
+                    <p class="text-sm text-slate-200">
+                        📍 @selectedDestination.Location
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Details -->
+            <div class="p-7">
+
+                <p class="mb-6 leading-7 text-slate-600">
+                    @selectedDestination.FullDescription
+                </p>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+
+                    <div class="rounded-2xl bg-slate-100 p-4">
+                        <p class="mb-1 text-xs font-bold uppercase text-gold">
+                            Best Time to Visit
+                        </p>
+
+                        <p class="font-semibold text-ocean">
+                            @selectedDestination.BestTime
+                        </p>
+                    </div>
+
+                    <div class="rounded-2xl bg-slate-100 p-4">
+                        <p class="mb-1 text-xs font-bold uppercase text-gold">
+                            Recommended Stay
+                        </p>
+
+                        <p class="font-semibold text-ocean">
+                            @selectedDestination.RecommendedStay
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="mt-6">
+
+                    <h3 class="mb-3 font-display text-xl font-bold text-ocean">
+                        Popular Activities
+                    </h3>
+
+                    <div class="flex flex-wrap gap-2">
+
+                        @foreach (var activity in selectedDestination.Activities)
+                        {
+                            <span class="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700">
+                                @activity
+                            </span>
+                        }
+
+                    </div>
+
+                </div>
+
+                <button @onclick="CloseDestination"
+                        class="mt-8 w-full rounded-full bg-gold px-6 py-3 font-bold text-black transition hover:bg-gold-hover">
+                    Close
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+}
+
+
 @code {
 
     private string searchText = "";
     private string selectedLocation = "All";
+
+    private Destination? selectedDestination;
+
 
     private List<Destination> destinations = new()
     {
@@ -110,7 +223,22 @@
             "Palawan",
             "Top Rated",
             "images/palawan.png",
-            "Famous for its towering limestone karst cliffs, hidden emerald lagoons, and untouched marine sanctuaries."
+
+            "Famous for its towering limestone karst cliffs, hidden emerald lagoons, and untouched marine sanctuaries.",
+
+            "El Nido is one of the Philippines' most famous island destinations. It is known for dramatic limestone cliffs, turquoise lagoons, white-sand beaches, and rich marine life. Visitors can explore nearby islands through island-hopping tours and enjoy snorkeling, kayaking, swimming, and diving.",
+
+            "November to May",
+
+            "3 to 5 Days",
+
+            new List<string>
+            {
+                "🏝 Island Hopping",
+                "🤿 Snorkeling",
+                "🚣 Kayaking",
+                "🌊 Diving"
+            }
         ),
 
         new Destination(
@@ -118,7 +246,22 @@
             "Aklan",
             "Popular",
             "images/boracay.png",
-            "World-famous four-mile stretch of powdery white sand, vibrant sunsets, and energetic island nightlife."
+
+            "World-famous four-mile stretch of powdery white sand, vibrant sunsets, and energetic island nightlife.",
+
+            "Boracay is famous for its powdery white sand and crystal-clear waters. White Beach is the center of the island's activity, offering water sports, restaurants, shopping, sunset views, and nightlife. Visitors can also explore quieter beaches and nearby islands.",
+
+            "November to May",
+
+            "3 to 4 Days",
+
+            new List<string>
+            {
+                "🏊 Swimming",
+                "⛵ Sunset Sailing",
+                "🏄 Water Sports",
+                "🏝 Island Hopping"
+            }
         ),
 
         new Destination(
@@ -126,9 +269,25 @@
             "Bohol",
             "Must Visit",
             "images/bohol.png",
-            "Marvel at over 1,200 unique cone-shaped geological formations that turn chocolate brown in dry season."
+
+            "Marvel at over 1,200 unique cone-shaped geological formations that turn chocolate brown in dry season.",
+
+            "The Chocolate Hills are one of Bohol's most recognizable natural attractions. More than a thousand cone-shaped hills cover the landscape. During the dry season, the grass turns brown, giving the hills their famous chocolate-like appearance.",
+
+            "December to May",
+
+            "2 to 3 Days",
+
+            new List<string>
+            {
+                "📸 Photography",
+                "🥾 Sightseeing",
+                "🚲 Countryside Tour",
+                "🐒 Tarsier Viewing"
+            }
         )
     };
+
 
     private IEnumerable<Destination> FilteredDestinations =>
         destinations.Where(destination =>
@@ -140,11 +299,28 @@
              destination.Location == selectedLocation)
         );
 
+
+    private void OpenDestination(Destination destination)
+    {
+        selectedDestination = destination;
+    }
+
+
+    private void CloseDestination()
+    {
+        selectedDestination = null;
+    }
+
+
     private record Destination(
         string Name,
         string Location,
         string Badge,
         string Image,
-        string Description
+        string Description,
+        string FullDescription,
+        string BestTime,
+        string RecommendedStay,
+        List<string> Activities
     );
 }

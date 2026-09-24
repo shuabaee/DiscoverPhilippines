@@ -2,22 +2,20 @@
 
 <div class="flex min-h-screen w-full flex-col bg-ocean pt-20 text-white lg:flex-row">
 
-    <!-- Culture Image -->
+    <!-- CULTURE IMAGE -->
     <div class="relative min-h-[350px] flex-1 lg:min-h-screen lg:flex-[1.1]">
 
         <img src="images/culture.png"
-             alt="Filipino Culture & Festival"
+             alt="Filipino Culture and Festival"
              class="absolute inset-0 h-full w-full object-cover" />
 
-        <!-- Mobile Gradient -->
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ocean lg:hidden"></div>
 
-        <!-- Desktop Gradient -->
         <div class="absolute inset-0 hidden bg-gradient-to-r from-transparent via-transparent to-ocean lg:block"></div>
 
     </div>
 
-    <!-- Culture Content -->
+    <!-- CULTURE CONTENT -->
     <div class="flex flex-1 flex-col justify-center px-[7%] py-16 lg:py-20">
 
         <span class="mb-2 block text-sm font-bold uppercase tracking-[2px] text-gold">
@@ -34,20 +32,27 @@
             festivals, rhythmic music, and timeless traditions.
         </p>
 
-        <!-- Culture Highlights -->
+        <p class="mb-4 text-sm text-slate-500">
+            Click an item below to learn more.
+        </p>
+
+        <!-- CLICKABLE CULTURE ITEMS -->
         <div class="mb-10 flex flex-wrap gap-4">
 
-            <span class="flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-200">
+            <button @onclick="() => OpenCulture(cultureItems[0])"
+                    class="flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-200 transition duration-300 hover:-translate-y-1 hover:border-gold hover:bg-gold hover:text-black">
                 🍲 Savory Adobo &amp; Sinigang
-            </span>
+            </button>
 
-            <span class="flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-200">
+            <button @onclick="() => OpenCulture(cultureItems[1])"
+                    class="flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-200 transition duration-300 hover:-translate-y-1 hover:border-gold hover:bg-gold hover:text-black">
                 🎭 Sinulog &amp; Ati-Atihan
-            </span>
+            </button>
 
-            <span class="flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-200">
+            <button @onclick="() => OpenCulture(cultureItems[2])"
+                    class="flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-200 transition duration-300 hover:-translate-y-1 hover:border-gold hover:bg-gold hover:text-black">
                 🥭 Sweet Mangoes &amp; Halo-Halo
-            </span>
+            </button>
 
         </div>
 
@@ -61,4 +66,125 @@
         </div>
 
     </div>
+
 </div>
+
+
+<!-- CULTURE MODAL -->
+@if (selectedCulture != null)
+{
+    <div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+         @onclick="CloseCulture">
+
+        <div class="relative w-full max-w-xl rounded-3xl bg-white p-8 shadow-2xl"
+             @onclick:stopPropagation="true">
+
+            <!-- Close Button -->
+            <button @onclick="CloseCulture"
+                    class="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-xl text-slate-600 transition hover:bg-slate-200 hover:text-black">
+                ✕
+            </button>
+
+            <!-- Emoji -->
+            <div class="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gold/20 text-4xl">
+                @selectedCulture.Emoji
+            </div>
+
+            <!-- Category -->
+            <span class="mb-2 block text-sm font-bold uppercase tracking-[2px] text-gold">
+                @selectedCulture.Category
+            </span>
+
+            <!-- Title -->
+            <h2 class="mb-5 pr-8 font-display text-3xl font-bold text-ocean">
+                @selectedCulture.Title
+            </h2>
+
+            <!-- Description -->
+            <p class="leading-8 text-slate-600">
+                @selectedCulture.Description
+            </p>
+
+            <!-- Extra Info -->
+            <div class="mt-6 rounded-2xl bg-slate-100 p-5">
+
+                <p class="mb-1 text-xs font-bold uppercase tracking-wider text-gold">
+                    Did You Know?
+                </p>
+
+                <p class="text-sm leading-6 text-slate-600">
+                    @selectedCulture.Fact
+                </p>
+
+            </div>
+
+            <button @onclick="CloseCulture"
+                    class="mt-7 w-full rounded-full bg-gold px-6 py-3 font-bold text-black transition hover:bg-gold-hover">
+                Close
+            </button>
+
+        </div>
+
+    </div>
+}
+
+
+@code {
+
+    private CultureItem? selectedCulture;
+
+
+    private List<CultureItem> cultureItems = new()
+    {
+        new CultureItem(
+            "🍲",
+            "Filipino Cuisine",
+            "Savory Adobo & Sinigang",
+
+            "Adobo and Sinigang are two of the Philippines' most recognizable dishes. Adobo is typically prepared by slowly cooking meat in vinegar, soy sauce, garlic, and spices. Sinigang is a comforting sour soup traditionally flavored with tamarind and served with meat, seafood, and vegetables.",
+
+            "Recipes differ from one region and family to another, making Filipino cuisine especially diverse."
+        ),
+
+        new CultureItem(
+            "🎭",
+            "Festivals",
+            "Sinulog & Ati-Atihan",
+
+            "Sinulog and Ati-Atihan are among the Philippines' most colorful and energetic festivals. Sinulog is celebrated in Cebu and is known for its grand street dances and devotion to the Santo Niño. Ati-Atihan is celebrated in Kalibo, Aklan and features lively dancing, music, costumes, and community celebrations.",
+
+            "Both festivals attract large crowds and showcase the country's combination of history, faith, music, dance, and celebration."
+        ),
+
+        new CultureItem(
+            "🥭",
+            "Filipino Favorites",
+            "Sweet Mangoes & Halo-Halo",
+
+            "Philippine mangoes are famous for their sweetness and rich flavor, particularly mangoes grown in regions such as Guimaras. Halo-Halo is a popular Filipino dessert made with crushed ice, evaporated milk, fruits, sweetened beans, jellies, and other colorful ingredients.",
+
+            "The name Halo-Halo means 'mix-mix' because the ingredients are mixed together before eating."
+        )
+    };
+
+
+    private void OpenCulture(CultureItem culture)
+    {
+        selectedCulture = culture;
+    }
+
+
+    private void CloseCulture()
+    {
+        selectedCulture = null;
+    }
+
+
+    private record CultureItem(
+        string Emoji,
+        string Category,
+        string Title,
+        string Description,
+        string Fact
+    );
+}

@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "DiscoverPhilippines",
   "resources": {
-    "hash": "sha256-RwZDrsTR+RZfeZjaUX3jg8/DXzfE3fI05Ih1adJF4Q4=",
+    "hash": "sha256-BdMh9t9O1vCDtIZSw9E5Cac7hx4EQbPR79eEZWu977s=",
     "jsModuleNative": {
       "dotnet.native.8.0.8.93i67mqfmb.js": "sha256-juC5sA7gHTLXFEhAKgdM2/RavswpwCtDfjYGsAz2FXg="
     },
@@ -208,10 +208,10 @@
       "mscorlib.wasm": "sha256-Gz8PyW2/fwihe5ul81OwmRUrU71r+KtbyRw6xlOGD+Q=",
       "netstandard.wasm": "sha256-jMTqIQzoDS810lyhZpMO5eEC36EzntXqSVn+2qwkOMQ=",
       "System.Private.CoreLib.wasm": "sha256-NFj5WE5VLP2LptZIRJCUIc1AMk06FmxpsSILfPISwAw=",
-      "DiscoverPhilippines.wasm": "sha256-nHJCb7Ilh/WDl27eqDWwuzT500HSRD3L+Tu0ZhfC6lc="
+      "DiscoverPhilippines.wasm": "sha256-ZvFfXa46noZMNK8cRzs8UxvKTwHSVnZhYFo89HWSx4A="
     },
     "pdb": {
-      "DiscoverPhilippines.pdb": "sha256-bG5LOaefBnDN5p6h4FC55RVUoieU+eFXzf6UYQDKRis="
+      "DiscoverPhilippines.pdb": "sha256-2Jdp2pBJ1Occo/DkX88tpDP96JbmjvBsjYOGZnj9zuA="
     }
   },
   "cacheBootResources": true,
