@@ -1,29 +1,64 @@
 @page "/culture"
 
-<div class="screen" id="screen-culture">
-    <div class="culture-image-container">
-        <img src="images/culture.png" class="culture-img" alt="Filipino Culture & Festival">
-        <div class="culture-overlay"></div>
+<div class="flex min-h-screen w-full flex-col bg-ocean pt-20 text-white lg:flex-row">
+
+    <!-- Culture Image -->
+    <div class="relative min-h-[350px] flex-1 lg:min-h-screen lg:flex-[1.1]">
+
+        <img src="images/culture.png"
+             alt="Filipino Culture & Festival"
+             class="absolute inset-0 h-full w-full object-cover" />
+
+        <!-- Mobile Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ocean lg:hidden"></div>
+
+        <!-- Desktop Gradient -->
+        <div class="absolute inset-0 hidden bg-gradient-to-r from-transparent via-transparent to-ocean lg:block"></div>
+
     </div>
-    
-    <div class="culture-text">
-        <span class="section-tag">Heritage & Hospitality</span>
-        <h2>Experience the Heart of the Islands</h2>
-        <p>
-            Beyond the breathtaking landscapes lie the warm, festive hearts of the Filipino people. Immerse yourself in colorful grand street festivals, rhythmic music, and timeless traditions.
+
+    <!-- Culture Content -->
+    <div class="flex flex-1 flex-col justify-center px-[7%] py-16 lg:py-20">
+
+        <span class="mb-2 block text-sm font-bold uppercase tracking-[2px] text-gold">
+            Heritage &amp; Hospitality
+        </span>
+
+        <h2 class="mb-6 font-display text-4xl font-bold leading-[1.1] text-gold md:text-5xl lg:text-6xl">
+            Experience the Heart of the Islands
+        </h2>
+
+        <p class="mb-6 text-base leading-8 text-slate-400 md:text-lg">
+            Beyond the breathtaking landscapes lie the warm, festive hearts
+            of the Filipino people. Immerse yourself in colorful grand street
+            festivals, rhythmic music, and timeless traditions.
         </p>
 
-        <!-- Feature Tags -->
-        <div class="culture-highlights">
-            <span class="highlight-pill">🍲 Savory Adobo & Sinigang</span>
-            <span class="highlight-pill">🎭 Sinulog & Ati-Atihan</span>
-            <span class="highlight-pill">🥭 Sweet Mangoes & Halo-Halo</span>
+        <!-- Culture Highlights -->
+        <div class="mb-10 flex flex-wrap gap-4">
+
+            <span class="flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-200">
+                🍲 Savory Adobo &amp; Sinigang
+            </span>
+
+            <span class="flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-200">
+                🎭 Sinulog &amp; Ati-Atihan
+            </span>
+
+            <span class="flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-200">
+                🥭 Sweet Mangoes &amp; Halo-Halo
+            </span>
+
         </div>
 
         <div>
-            <a href="/" class="btn-outline">
+
+            <a href="/"
+               class="inline-flex items-center rounded-full border-2 border-gold px-8 py-3 font-bold text-gold no-underline transition duration-300 hover:-translate-y-1 hover:bg-gold hover:text-black hover:shadow-xl">
                 &larr; Back to Home
             </a>
+
         </div>
+
     </div>
 </div>

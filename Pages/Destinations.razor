@@ -1,56 +1,143 @@
 @page "/destinations"
 
-<div class="screen" id="screen-destinations">
-    <div class="section-header">
-        <span class="section-tag">Curated Getaways</span>
-        <h2>Top Destinations</h2>
-        <p>Explore our most celebrated tropical islands and natural wonders.</p>
-    </div>
-    
-    <div class="grid-container">
-        <!-- Card 1 -->
-        <div class="card">
-            <div class="card-img-wrapper">
-                <span class="card-badge">Top Rated</span>
-                <img src="images/palawan.png" class="card-img" alt="El Nido, Palawan">
-            </div>
-            <div class="card-content">
-                <div class="card-location">Palawan</div>
-                <h3 class="card-title">El Nido</h3>
-                <p class="card-desc">Famous for its towering limestone karst cliffs, hidden emerald lagoons, and untouched marine sanctuaries.</p>
-            </div>
-        </div>
+<div class="relative min-h-screen w-full overflow-hidden bg-ocean px-[8%] pb-24 pt-28">
 
-        <!-- Card 2 -->
-        <div class="card">
-            <div class="card-img-wrapper">
-                <span class="card-badge">Popular</span>
-                <img src="images/boracay.png" class="card-img" alt="Boracay Island">
-            </div>
-            <div class="card-content">
-                <div class="card-location">Aklan</div>
-                <h3 class="card-title">Boracay Island</h3>
-                <p class="card-desc">World-famous four-mile stretch of powdery white sand, vibrant sunsets, and energetic island nightlife.</p>
-            </div>
-        </div>
+    <!-- Background Image -->
+    <img src="images/ph.jpg"
+         alt="Philippines Background"
+         class="fixed inset-0 -z-10 h-full w-full object-cover" />
 
-        <!-- Card 3 -->
-        <div class="card">
-            <div class="card-img-wrapper">
-                <span class="card-badge">Must Visit</span>
-                <img src="images/bohol.png" class="card-img" alt="Chocolate Hills, Bohol">
-            </div>
-            <div class="card-content">
-                <div class="card-location">Bohol</div>
-                <h3 class="card-title">Chocolate Hills</h3>
-                <p class="card-desc">Marvel at over 1,200 unique cone-shaped geological formations that turn chocolate brown in dry season.</p>
-            </div>
-        </div>
+    <!-- Dark Background Overlay -->
+    <div class="fixed inset-0 -z-10 bg-gradient-to-b from-ocean/85 to-ocean/95"></div>
+
+    <!-- Section Header -->
+    <div class="relative z-10 mb-12 text-center">
+
+        <span class="mb-2 block text-sm font-bold uppercase tracking-[2px] text-gold">
+            Curated Getaways
+        </span>
+
+        <h2 class="mb-3 font-display text-4xl font-bold text-white md:text-5xl">
+            Top Destinations
+        </h2>
+
+        <p class="text-base text-slate-300 md:text-lg">
+            Explore our most celebrated tropical islands and natural wonders.
+        </p>
+
     </div>
 
-    <div class="next-action-bar">
-        <a href="/culture" class="btn-primary">
-            Explore Culture & Food &rarr;
+    <!-- Destination Cards -->
+    <div class="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+        <!-- El Nido -->
+        <div class="group overflow-hidden rounded-3xl border border-black/5 bg-white shadow-xl transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+
+            <div class="relative h-[260px] w-full overflow-hidden">
+
+                <span class="absolute left-4 top-4 z-10 rounded-full bg-ocean/80 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-lg">
+                    Top Rated
+                </span>
+
+                <img src="images/palawan.png"
+                     alt="El Nido, Palawan"
+                     class="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
+
+            </div>
+
+            <div class="p-7">
+
+                <div class="mb-1 text-sm font-bold text-gold">
+                    Palawan
+                </div>
+
+                <h3 class="mb-3 font-display text-2xl font-bold text-ocean">
+                    El Nido
+                </h3>
+
+                <p class="text-sm leading-7 text-slate-500">
+                    Famous for its towering limestone karst cliffs,
+                    hidden emerald lagoons, and untouched marine sanctuaries.
+                </p>
+
+            </div>
+        </div>
+
+        <!-- Boracay -->
+        <div class="group overflow-hidden rounded-3xl border border-black/5 bg-white shadow-xl transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+
+            <div class="relative h-[260px] w-full overflow-hidden">
+
+                <span class="absolute left-4 top-4 z-10 rounded-full bg-ocean/80 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-lg">
+                    Popular
+                </span>
+
+                <img src="images/boracay.png"
+                     alt="Boracay Island"
+                     class="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
+
+            </div>
+
+            <div class="p-7">
+
+                <div class="mb-1 text-sm font-bold text-gold">
+                    Aklan
+                </div>
+
+                <h3 class="mb-3 font-display text-2xl font-bold text-ocean">
+                    Boracay Island
+                </h3>
+
+                <p class="text-sm leading-7 text-slate-500">
+                    World-famous four-mile stretch of powdery white sand,
+                    vibrant sunsets, and energetic island nightlife.
+                </p>
+
+            </div>
+        </div>
+
+        <!-- Chocolate Hills -->
+        <div class="group overflow-hidden rounded-3xl border border-black/5 bg-white shadow-xl transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+
+            <div class="relative h-[260px] w-full overflow-hidden">
+
+                <span class="absolute left-4 top-4 z-10 rounded-full bg-ocean/80 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-lg">
+                    Must Visit
+                </span>
+
+                <img src="images/bohol.png"
+                     alt="Chocolate Hills, Bohol"
+                     class="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
+
+            </div>
+
+            <div class="p-7">
+
+                <div class="mb-1 text-sm font-bold text-gold">
+                    Bohol
+                </div>
+
+                <h3 class="mb-3 font-display text-2xl font-bold text-ocean">
+                    Chocolate Hills
+                </h3>
+
+                <p class="text-sm leading-7 text-slate-500">
+                    Marvel at over 1,200 unique cone-shaped geological formations
+                    that turn chocolate brown in dry season.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Next Button -->
+    <div class="relative z-10 mt-14 text-center">
+
+        <a href="/culture"
+           class="inline-flex items-center rounded-full bg-gold px-9 py-4 text-base font-bold text-black no-underline shadow-xl shadow-yellow-500/20 transition duration-300 hover:-translate-y-1 hover:bg-gold-hover hover:shadow-2xl">
+            Explore Culture &amp; Food &rarr;
         </a>
+
     </div>
 </div>
