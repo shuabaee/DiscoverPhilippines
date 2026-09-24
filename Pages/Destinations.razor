@@ -2,6 +2,7 @@
 
 <div class="relative min-h-screen w-full overflow-hidden bg-ocean px-[8%] pb-24 pt-28">
 
+    <!-- Background -->
     <img src="images/ph.jpg"
          alt="Philippines Background"
          class="fixed inset-0 -z-10 h-full w-full object-cover" />
@@ -28,21 +29,45 @@
     <!-- SEARCH AND FILTER -->
     <div class="relative z-10 mx-auto mb-10 flex max-w-3xl flex-col gap-4 md:flex-row">
 
+        <!-- Search -->
         <input type="text"
                @bind="searchText"
                @bind:event="oninput"
                placeholder="Search destinations..."
                class="w-full rounded-xl border border-slate-300 bg-white px-5 py-3 text-slate-800 outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30" />
 
-        <select @bind="selectedLocation"
-                class="rounded-xl border border-slate-300 bg-white px-5 py-3 text-slate-800 outline-none focus:border-gold">
+        <!-- Custom Select -->
+        <div class="relative w-full md:w-[250px]">
 
-            <option value="All">All Locations</option>
-            <option value="Palawan">Palawan</option>
-            <option value="Aklan">Aklan</option>
-            <option value="Bohol">Bohol</option>
+            <select @bind="selectedLocation"
+                    class="w-full appearance-none whitespace-nowrap rounded-xl border border-slate-300 bg-white py-3 pl-5 pr-14 text-slate-800 outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30">
 
-        </select>
+                <option value="All">All Locations</option>
+                <option value="Palawan">Palawan</option>
+                <option value="Aklan">Aklan</option>
+                <option value="Bohol">Bohol</option>
+
+            </select>
+
+            <!-- Custom Arrow -->
+            <div class="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+
+                <svg class="h-4 w-4 text-slate-700"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor"
+                     stroke-width="2.5">
+
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6 9l6 6 6-6" />
+
+                </svg>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -53,6 +78,7 @@
         {
             <div class="group overflow-hidden rounded-3xl bg-white shadow-xl transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
 
+                <!-- Image -->
                 <div class="relative h-[260px] overflow-hidden">
 
                     <span class="absolute left-4 top-4 z-10 rounded-full bg-ocean/80 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-lg">
@@ -65,6 +91,7 @@
 
                 </div>
 
+                <!-- Card Content -->
                 <div class="p-7">
 
                     <div class="mb-1 text-sm font-bold text-gold">
@@ -95,16 +122,17 @@
     @if (!FilteredDestinations.Any())
     {
         <div class="relative z-10 mt-10 text-center">
+
             <p class="text-lg text-white">
                 No destinations found.
             </p>
+
         </div>
     }
 
 </div>
 
-
-<!-- DESTINATION MODAL -->
+<!-- DESTINATION DETAILS MODAL -->
 @if (selectedDestination != null)
 {
     <div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
@@ -113,7 +141,7 @@
         <div class="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white shadow-2xl"
              @onclick:stopPropagation="true">
 
-            <!-- Image -->
+            <!-- Modal Image -->
             <div class="relative h-[280px] overflow-hidden rounded-t-3xl">
 
                 <img src="@selectedDestination.Image"
@@ -122,11 +150,13 @@
 
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
 
+                <!-- Close Button -->
                 <button @onclick="CloseDestination"
                         class="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-xl text-white transition hover:bg-black">
                     ✕
                 </button>
 
+                <!-- Modal Title -->
                 <div class="absolute bottom-5 left-6 text-white">
 
                     <span class="mb-2 inline-block rounded-full bg-gold px-3 py-1 text-xs font-bold uppercase text-black">
@@ -138,23 +168,25 @@
                     </h2>
 
                     <p class="text-sm text-slate-200">
-                        📍 @selectedDestination.Location
+                         @selectedDestination.Location
                     </p>
 
                 </div>
 
             </div>
 
-            <!-- Details -->
+            <!-- Modal Content -->
             <div class="p-7">
 
                 <p class="mb-6 leading-7 text-slate-600">
                     @selectedDestination.FullDescription
                 </p>
 
+                <!-- Details -->
                 <div class="grid gap-4 sm:grid-cols-2">
 
                     <div class="rounded-2xl bg-slate-100 p-4">
+
                         <p class="mb-1 text-xs font-bold uppercase text-gold">
                             Best Time to Visit
                         </p>
@@ -162,9 +194,11 @@
                         <p class="font-semibold text-ocean">
                             @selectedDestination.BestTime
                         </p>
+
                     </div>
 
                     <div class="rounded-2xl bg-slate-100 p-4">
+
                         <p class="mb-1 text-xs font-bold uppercase text-gold">
                             Recommended Stay
                         </p>
@@ -172,10 +206,12 @@
                         <p class="font-semibold text-ocean">
                             @selectedDestination.RecommendedStay
                         </p>
+
                     </div>
 
                 </div>
 
+                <!-- Activities -->
                 <div class="mt-6">
 
                     <h3 class="mb-3 font-display text-xl font-bold text-ocean">
@@ -207,14 +243,12 @@
     </div>
 }
 
-
 @code {
 
     private string searchText = "";
     private string selectedLocation = "All";
 
     private Destination? selectedDestination;
-
 
     private List<Destination> destinations = new()
     {
@@ -288,7 +322,6 @@
         )
     };
 
-
     private IEnumerable<Destination> FilteredDestinations =>
         destinations.Where(destination =>
             (string.IsNullOrWhiteSpace(searchText) ||
@@ -299,18 +332,15 @@
              destination.Location == selectedLocation)
         );
 
-
     private void OpenDestination(Destination destination)
     {
         selectedDestination = destination;
     }
 
-
     private void CloseDestination()
     {
         selectedDestination = null;
     }
-
 
     private record Destination(
         string Name,
