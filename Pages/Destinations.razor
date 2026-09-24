@@ -2,16 +2,13 @@
 
 <div class="relative min-h-screen w-full overflow-hidden bg-ocean px-[8%] pb-24 pt-28">
 
-    <!-- Background Image -->
     <img src="images/ph.jpg"
          alt="Philippines Background"
          class="fixed inset-0 -z-10 h-full w-full object-cover" />
 
-    <!-- Dark Background Overlay -->
     <div class="fixed inset-0 -z-10 bg-gradient-to-b from-ocean/85 to-ocean/95"></div>
 
-    <!-- Section Header -->
-    <div class="relative z-10 mb-12 text-center">
+    <div class="relative z-10 mb-10 text-center">
 
         <span class="mb-2 block text-sm font-bold uppercase tracking-[2px] text-gold">
             Curated Getaways
@@ -27,117 +24,127 @@
 
     </div>
 
+    <!-- Search and Filter -->
+    <div class="relative z-10 mx-auto mb-10 flex max-w-3xl flex-col gap-4 md:flex-row">
+
+        <input type="text"
+               @bind="searchText"
+               @bind:event="oninput"
+               placeholder="Search destinations..."
+               class="w-full rounded-xl border border-slate-300 bg-white px-5 py-3 text-slate-800 outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30" />
+
+        <select @bind="selectedLocation"
+                class="rounded-xl border border-slate-300 bg-white px-5 py-3 text-slate-800 outline-none focus:border-gold">
+
+            <option value="All">All Locations</option>
+            <option value="Palawan">Palawan</option>
+            <option value="Aklan">Aklan</option>
+            <option value="Bohol">Bohol</option>
+
+        </select>
+
+    </div>
+
     <!-- Destination Cards -->
     <div class="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-        <!-- El Nido -->
-        <div class="group overflow-hidden rounded-3xl border border-black/5 bg-white shadow-xl transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        @foreach (var destination in FilteredDestinations)
+        {
+            <div class="group overflow-hidden rounded-3xl bg-white shadow-xl transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
 
-            <div class="relative h-[260px] w-full overflow-hidden">
+                <div class="relative h-[260px] overflow-hidden">
 
-                <span class="absolute left-4 top-4 z-10 rounded-full bg-ocean/80 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-lg">
-                    Top Rated
-                </span>
+                    <span class="absolute left-4 top-4 z-10 rounded-full bg-ocean/80 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-lg">
+                        @destination.Badge
+                    </span>
 
-                <img src="images/palawan.png"
-                     alt="El Nido, Palawan"
-                     class="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
+                    <img src="@destination.Image"
+                         alt="@destination.Name"
+                         class="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
 
-            </div>
-
-            <div class="p-7">
-
-                <div class="mb-1 text-sm font-bold text-gold">
-                    Palawan
                 </div>
 
-                <h3 class="mb-3 font-display text-2xl font-bold text-ocean">
-                    El Nido
-                </h3>
+                <div class="p-7">
 
-                <p class="text-sm leading-7 text-slate-500">
-                    Famous for its towering limestone karst cliffs,
-                    hidden emerald lagoons, and untouched marine sanctuaries.
-                </p>
+                    <div class="mb-1 text-sm font-bold text-gold">
+                        @destination.Location
+                    </div>
 
-            </div>
-        </div>
+                    <h3 class="mb-3 font-display text-2xl font-bold text-ocean">
+                        @destination.Name
+                    </h3>
 
-        <!-- Boracay -->
-        <div class="group overflow-hidden rounded-3xl border border-black/5 bg-white shadow-xl transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <p class="text-sm leading-7 text-slate-500">
+                        @destination.Description
+                    </p>
 
-            <div class="relative h-[260px] w-full overflow-hidden">
-
-                <span class="absolute left-4 top-4 z-10 rounded-full bg-ocean/80 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-lg">
-                    Popular
-                </span>
-
-                <img src="images/boracay.png"
-                     alt="Boracay Island"
-                     class="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
-
-            </div>
-
-            <div class="p-7">
-
-                <div class="mb-1 text-sm font-bold text-gold">
-                    Aklan
                 </div>
 
-                <h3 class="mb-3 font-display text-2xl font-bold text-ocean">
-                    Boracay Island
-                </h3>
-
-                <p class="text-sm leading-7 text-slate-500">
-                    World-famous four-mile stretch of powdery white sand,
-                    vibrant sunsets, and energetic island nightlife.
-                </p>
-
             </div>
-        </div>
-
-        <!-- Chocolate Hills -->
-        <div class="group overflow-hidden rounded-3xl border border-black/5 bg-white shadow-xl transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
-
-            <div class="relative h-[260px] w-full overflow-hidden">
-
-                <span class="absolute left-4 top-4 z-10 rounded-full bg-ocean/80 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-lg">
-                    Must Visit
-                </span>
-
-                <img src="images/bohol.png"
-                     alt="Chocolate Hills, Bohol"
-                     class="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
-
-            </div>
-
-            <div class="p-7">
-
-                <div class="mb-1 text-sm font-bold text-gold">
-                    Bohol
-                </div>
-
-                <h3 class="mb-3 font-display text-2xl font-bold text-ocean">
-                    Chocolate Hills
-                </h3>
-
-                <p class="text-sm leading-7 text-slate-500">
-                    Marvel at over 1,200 unique cone-shaped geological formations
-                    that turn chocolate brown in dry season.
-                </p>
-
-            </div>
-        </div>
+        }
 
     </div>
 
-    <!-- Next Button -->
-    <div class="relative z-10 mt-14 text-center">
+    @if (!FilteredDestinations.Any())
+    {
+        <div class="relative z-10 mt-10 text-center">
 
-        <a href="/culture"
-           class="inline-flex items-center rounded-full bg-gold px-9 py-4 text-base font-bold text-black no-underline shadow-xl shadow-yellow-500/20 transition duration-300 hover:-translate-y-1 hover:bg-gold-hover hover:shadow-2xl">
-            Explore Culture &amp; Food &rarr;
-        </a>
+            <p class="text-lg text-white">
+                No destinations found.
+            </p>
 
-    </div>
+        </div>
+    }
+
 </div>
+
+@code {
+
+    private string searchText = "";
+    private string selectedLocation = "All";
+
+    private List<Destination> destinations = new()
+    {
+        new Destination(
+            "El Nido",
+            "Palawan",
+            "Top Rated",
+            "images/palawan.png",
+            "Famous for its towering limestone karst cliffs, hidden emerald lagoons, and untouched marine sanctuaries."
+        ),
+
+        new Destination(
+            "Boracay Island",
+            "Aklan",
+            "Popular",
+            "images/boracay.png",
+            "World-famous four-mile stretch of powdery white sand, vibrant sunsets, and energetic island nightlife."
+        ),
+
+        new Destination(
+            "Chocolate Hills",
+            "Bohol",
+            "Must Visit",
+            "images/bohol.png",
+            "Marvel at over 1,200 unique cone-shaped geological formations that turn chocolate brown in dry season."
+        )
+    };
+
+    private IEnumerable<Destination> FilteredDestinations =>
+        destinations.Where(destination =>
+            (string.IsNullOrWhiteSpace(searchText) ||
+             destination.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+             destination.Location.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+            &&
+            (selectedLocation == "All" ||
+             destination.Location == selectedLocation)
+        );
+
+    private record Destination(
+        string Name,
+        string Location,
+        string Badge,
+        string Image,
+        string Description
+    );
+}
