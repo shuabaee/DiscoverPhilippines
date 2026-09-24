@@ -1029,3 +1029,6 @@ C:\Users\L23Y16W20\DiscoverPhilippines\obj\Debug\net8.0\DiscoverPhilippines.dll
 C:\Users\L23Y16W20\DiscoverPhilippines\obj\Debug\net8.0\refint\DiscoverPhilippines.dll
 C:\Users\L23Y16W20\DiscoverPhilippines\obj\Debug\net8.0\DiscoverPhilippines.pdb
 C:\Users\L23Y16W20\DiscoverPhilippines\obj\Debug\net8.0\ref\DiscoverPhilippines.dll
+C:\Users\L23Y16W20\DiscoverPhilippines\obj\Debug\net8.0\DiscoverPhilippines.sourcelink.json
+C:\Users\L23Y16W20\DiscoverPhilippines\bin\Debug\net8.0\package-lock.json
+C:\Users\L23Y16W20\DiscoverPhilippines\bin\Debug\net8.0\package.json

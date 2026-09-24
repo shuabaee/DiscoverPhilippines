@@ -25,12 +25,44 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\css\\tailwind-input.css",
+      "PackagePath": "staticwebassets\\css\\tailwind-input.css"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\css\\tailwind.css",
+      "PackagePath": "staticwebassets\\css\\tailwind.css"
+    },
+    {
       "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
       "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\icon-192.png",
       "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\bohol.png",
+      "PackagePath": "staticwebassets\\images\\bohol.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\boracay.png",
+      "PackagePath": "staticwebassets\\images\\boracay.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\culture.png",
+      "PackagePath": "staticwebassets\\images\\culture.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\hero.png",
+      "PackagePath": "staticwebassets\\images\\hero.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\palawan.png",
+      "PackagePath": "staticwebassets\\images\\palawan.png"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\ph.jpg",
+      "PackagePath": "staticwebassets\\images\\ph.jpg"
     },
     {
       "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\index.html",
