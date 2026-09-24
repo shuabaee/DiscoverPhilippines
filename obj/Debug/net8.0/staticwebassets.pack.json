@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\adobo.jpg",
+      "PackagePath": "staticwebassets\\images\\adobo.jpg"
+    },
+    {
       "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\bohol.png",
       "PackagePath": "staticwebassets\\images\\bohol.png"
     },
@@ -53,6 +57,10 @@
       "PackagePath": "staticwebassets\\images\\culture.png"
     },
     {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\halohalo.jpg",
+      "PackagePath": "staticwebassets\\images\\halohalo.jpg"
+    },
+    {
       "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\hero.png",
       "PackagePath": "staticwebassets\\images\\hero.png"
     },
@@ -63,6 +71,10 @@
     {
       "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\ph.jpg",
       "PackagePath": "staticwebassets\\images\\ph.jpg"
+    },
+    {
+      "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\sinulog.jpg",
+      "PackagePath": "staticwebassets\\images\\sinulog.jpg"
     },
     {
       "Id": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\index.html",

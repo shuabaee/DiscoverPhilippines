@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DiscoverPhilippines")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac679b2849ab0a6e3c69eaa13010ba9ce30c93f3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58787c50ac688e6ff1ad2320b256dc4766eaeba9")]
 [assembly: System.Reflection.AssemblyProductAttribute("DiscoverPhilippines")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DiscoverPhilippines")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

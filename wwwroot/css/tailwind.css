@@ -610,9 +610,6 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
-  .h-16 {
-    height: calc(var(--spacing) * 16);
-  }
   .h-25 {
     height: calc(var(--spacing) * 25);
   }
@@ -649,9 +646,6 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
-  .w-16 {
-    width: calc(var(--spacing) * 16);
-  }
   .w-25 {
     width: calc(var(--spacing) * 25);
   }
@@ -681,9 +675,6 @@
   }
   .max-w-\[850px\] {
     max-width: 850px;
-  }
-  .max-w-xl {
-    max-width: var(--container-xl);
   }
   .flex-1 {
     flex: 1;
@@ -897,12 +888,6 @@
   }
   .bg-gold {
     background-color: var(--color-gold);
-  }
-  .bg-gold\/20 {
-    background-color: color-mix(in srgb, #F2A900 20%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-gold) 20%, transparent);
-    }
   }
   .bg-ocean {
     background-color: var(--color-ocean);
@@ -1468,9 +1453,6 @@
     }
     .hover\:bg-gold-hover:hover {
       background-color: var(--color-gold-hover);
-    }
-    .hover\:bg-slate-200:hover {
-      background-color: var(--color-slate-200);
     }
     .hover\:bg-white\/10:hover {
       background-color: color-mix(in srgb, #fff 10%, transparent);

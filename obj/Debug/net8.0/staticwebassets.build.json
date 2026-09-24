@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KZ8/iMbKv497/l4vw/2ZA7hijT9DnmxljOz/1OulqlQ=",
+  "Hash": "kcZ1sK7aPL1PK7+0UnFvp0nEm1emCmM5fiNNpslShzg=",
   "Source": "DiscoverPhilippines",
   "BasePath": "/",
   "Mode": "Root",
@@ -7940,6 +7940,25 @@
       "OriginalItemSpec": "wwwroot\\icon-192.png"
     },
     {
+      "Identity": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\adobo.jpg",
+      "SourceId": "DiscoverPhilippines",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/adobo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\adobo.jpg"
+    },
+    {
       "Identity": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\bohol.png",
       "SourceId": "DiscoverPhilippines",
       "SourceType": "Discovered",
@@ -7997,6 +8016,25 @@
       "OriginalItemSpec": "wwwroot\\images\\culture.png"
     },
     {
+      "Identity": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\halohalo.jpg",
+      "SourceId": "DiscoverPhilippines",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/halohalo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\halohalo.jpg"
+    },
+    {
       "Identity": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\hero.png",
       "SourceId": "DiscoverPhilippines",
       "SourceType": "Discovered",
@@ -8052,6 +8090,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\ph.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\images\\sinulog.jpg",
+      "SourceId": "DiscoverPhilippines",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/sinulog.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\sinulog.jpg"
     },
     {
       "Identity": "C:\\Users\\L23Y16W20\\DiscoverPhilippines\\wwwroot\\index.html",
